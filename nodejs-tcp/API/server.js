@@ -11,7 +11,7 @@ const setAWS = () => {
     return new Promise((resolve, reject) => {
         let AWS_list = []
         readStream.pipe(csv())
-            .on('data', (data) => {
+            .on('data', function (data) {
                 AWS_list.push(data);
             })
             .on('end', () => {
