@@ -1,8 +1,7 @@
 const net = require('net');
 
-const client = net.createConnection({ port: 3000 }, () => {
+const client = net.createConnection({ port: 4000 }, () => {
     console.log('TCP 서버에 연결되었습니다.');
-
     client.write('안녕하세요, 서버!');
 });
 
@@ -13,3 +12,6 @@ client.on('data', (data) => {
 client.on('end', () => {
     console.log('서버와의 연결이 끊어졌습니다.');
 });
+
+
+

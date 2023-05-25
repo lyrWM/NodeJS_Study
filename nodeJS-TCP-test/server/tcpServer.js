@@ -8,9 +8,17 @@ const server = net.createServer((socket) => {
         socket.write('서버로부터 응답: ' + data.toString());
     });
 
-    socket.on('end', () => {
-        console.log('클라이언트와 연결이 끊어졌습니다.');
-    });
+    // socket.on('end', () => {
+    //     console.log('클라이언트와 연결이 끊어졌습니다.');
+    // });
+
+    socket.on('close', function () {
+        console.log('client disconnected');
+    })
+
+    socket.write('welcome to server');
+
+
 });
 
 const PORT = 3000;
