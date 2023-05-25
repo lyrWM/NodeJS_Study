@@ -22,6 +22,7 @@ exports.sendDataPerMinutes = async (client) => {
     try {
         let data = await getKMA_SENSOR(cnt)
         cnt++;
+        console.log(data)
         client.write(data)
         setInterval(async () => {
             data = await getKMA_SENSOR(cnt)
