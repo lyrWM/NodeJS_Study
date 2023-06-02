@@ -8,7 +8,6 @@ const secret = process.env.JWT_KEY;
 // const { JWT_KEY } = process.env;
 
 
-
 module.exports = {
     sign: (email) => { // access token 발급
         const payload = { // access token에 들어갈 payload
