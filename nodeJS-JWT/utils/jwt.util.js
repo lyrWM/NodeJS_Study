@@ -2,7 +2,11 @@
 const { promisify } = require('util');
 const jwtUtil = require('jsonwebtoken');
 const redisClient = require('./redis.util');
+require('dotenv').config();
+//.env 파일 못읽고있음!!!
 const secret = process.env.JWT_KEY;
+// const { JWT_KEY } = process.env;
+
 
 
 module.exports = {
@@ -10,6 +14,8 @@ module.exports = {
         const payload = { // access token에 들어갈 payload
             email: email
         };
+        console.log(payload);
+
         return jwtUtil.sign(payload, secret, { // secret으로 sign하여 발급하고 return
             expiresIn: '1h',       // 유효기간
             algorithm: 'HS256', // 암호화 알고리즘
