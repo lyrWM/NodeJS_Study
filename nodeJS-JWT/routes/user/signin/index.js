@@ -3,10 +3,10 @@ const User = require("../../../mockData/users");
 
 const crypto = require('crypto');
 
-const jwt = require('../../../utils/jwt.util');
-const redisClient = require('../../../utils/redis.util');
+const jwt = require('../../../utils/jwt');
+const redisClient = require('../../../utils/redis');
 
-router.post("/signin", async (req, res) => {
+router.post("/signin", jwt.verifyToken, async (req, res) => {
     const { username, password } = req.body;
 
     console.log(username);

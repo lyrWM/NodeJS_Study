@@ -2,10 +2,10 @@ const router = require("express").Router();
 
 const signUpRouter = require("./signup");
 const signInRouter = require("./signin");
-const signCheckRouter = require("./signcheck")
+const signRefresh = require("./signrefresh");
 
 router.use("/", signUpRouter);
 router.use("/", signInRouter);
-router.use("/", signCheckRouter);
+router.use("/",signRefresh);
 
 module.exports = router;
